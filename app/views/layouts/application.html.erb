@@ -10,6 +10,39 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+      <div class="container">
+        <a class="navbar-brand" href="#">
+          <%= image_tag '/assets/logo_blox.png', width: '64' %>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <%= link_to "Home", root_path, class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Agendar", '#', class: 'nav-link' %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Consultar Agenda", '#', class: 'nav-link' %>
+            </li>
+          </ul>
+          <ul class="navbar-nav d-flex">
+            <li class="nav-item">
+              <%= link_to "Sair", '#', class: 'nav-link' %>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+
   </body>
 </html>
