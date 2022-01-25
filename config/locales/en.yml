@@ -31,3 +31,8 @@
 
 en:
   hello: "Hello world"
+  navbar:
+    rooms: Salas
+    book_a_room: Reservar sala
+    booked_rooms: Salas Reservadas
+    logout: Sair
