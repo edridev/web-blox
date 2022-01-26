@@ -1,0 +1,27 @@
+<h1><%= tr :room, "activerecord.models", 2 %></h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= tr :name, "activerecord.attributes.room" %></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rooms.each do |room| %>
+      <tr>
+        <td><%= room.name %></td>
+        <td colspan="3" class="table-action">
+          <%= link_to fa_icon("eye"), room, class: 'text-primary', title: tr(:show, "actions") %>
+          <%= link_to fa_icon("edit"), edit_room_path(room), class: 'text-success', title: tr(:edit, "actions") %>
+          <%= link_to fa_icon("trash"), room, method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-danger', title: tr(:destroy, "actions") %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to fa_icon("plus", text: tr(:new_room, 'title')), new_room_path, class: 'btn btn-secondary' %>

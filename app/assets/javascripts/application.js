@@ -17,3 +17,8 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+
+$(function () {
+  $(".table-action > a").tooltip();
+});

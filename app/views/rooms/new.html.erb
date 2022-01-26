@@ -1,0 +1,6 @@
+<h1><%= tr :new_room, 'title' %></h1>
+
+<div class="crud-form">
+  <%= render 'form', room: @room %>
+  <%= link_to fa_icon("undo", text: tr(:back,'actions')), rooms_path, class: 'btn btn-light' %>
+</div>
