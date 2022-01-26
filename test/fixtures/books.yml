@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  room: one
+  user: one
+  data: 2022-01-25
+  hora: 1
+
+two:
+  room: two
+  user: two
+  data: 2022-01-25
+  hora: 1

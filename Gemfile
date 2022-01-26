@@ -68,3 +68,5 @@ gem 'bootstrap', '~> 5.1.3'
 gem 'jquery-rails', '~> 4.3.5'
 gem "font-awesome-rails"
 gem 'simple_form'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
