@@ -13,10 +13,10 @@
 ActiveRecord::Schema.define(version: 2022_01_26_024453) do
 
   create_table "books", force: :cascade do |t|
+    t.date "book_date"
     t.integer "room_id"
     t.integer "user_id"
-    t.date "data"
-    t.integer "hora"
+    t.string "schedule"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["room_id"], name: "index_books_on_room_id"
@@ -27,6 +27,20 @@ ActiveRecord::Schema.define(version: 2022_01_26_024453) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "encrypted_password"
+    t.boolean "admin", default: false, null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
 end

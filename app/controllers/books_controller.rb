@@ -3,7 +3,7 @@ class BooksController < ApplicationController
 
   # GET /books or /books.json
   def index
-    @books = Book.all
+    @books = current_user.books
   end
 
   # GET /books/1 or /books/1.json
@@ -12,16 +12,19 @@ class BooksController < ApplicationController
 
   # GET /books/new
   def new
-    @book = Book.new
+    @book = current_user.books.new(book_date: Date.tomorrow)
+    @schedules = []
   end
 
   # GET /books/1/edit
   def edit
+    @schedules = no_bookeds(@book.room_id,@book.book_date,@book.schedule)
   end
 
   # POST /books or /books.json
   def create
     @book = Book.new(book_params)
+    @book.user = current_user
 
     respond_to do |format|
       if @book.save
@@ -57,14 +60,33 @@ class BooksController < ApplicationController
     end
   end
 
+  def no_bookeds(room, date, hour)
+    list = hours
+    list = list - [hour] unless hour=='undefined'
+    bkds = Book.select(:schedule).where('book_date = ? and room_id = ?', 
+      date,
+      room
+    ).map { |i| i.schedule }
+    list - bkds
+  end
+
+  def unreserveds
+    resp = no_bookeds(
+      params[:room].to_i,
+      Date.parse( params[:date] ),
+      params[:hour]
+    )
+    render json: resp 
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_book
-      @book = Book.find(params[:id])
+      @book = current_user.books.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
     def book_params
-      params.require(:book).permit(:room_id, :user_id, :data, :hora)
+      params.require(:book).permit(:room_id, :user_id, :book_date, :schedule)
     end
 end

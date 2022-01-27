@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>WebBlox</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <style>
+      #container-devise {
+        margin-top: 100px;
+      }
+    </style>
+
+  </head>
+  
+  <body>
+
+    <div class="container" id="container-devise">
+      
+      <div class="row justify-content-md-center">
+        <div class="col-lg-6 col-md-8 col-sm-10 col-xs-12">
+          <%= yield %>
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+</html>

@@ -1,6 +1,9 @@
-<h1>Editing Book</h1>
+<h1><%= tr 'title.book.edit' %></h1>
 
-<%= render 'form', book: @book %>
+<div class="crud-form">
+  <%= render 'form', book: @book %>
 
-<%= link_to 'Show', @book %> |
-<%= link_to 'Back', books_path %>
+  <%= link_to fa_icon("undo", text: tr(:back,'actions')), books_path, class: "link-form btn btn-light" %>
+  <%= link_to fa_icon("eye", text: tr(:show,'actions')), @book, class: "link-form btn btn-light" %>
+
+</div>

@@ -1,0 +1,21 @@
+<div class="card">
+  <div class="card-header" style="text-align:center;">
+    <h4><%= tr 'title.forgot_your_password' %></h4>
+  </div>
+  <div class="card-body">
+    <%= simple_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, autocomplete: 'off' }) do |f| %>
+      <div class="auth form-inputs">
+        <%= f.input :email,
+                    required: true,
+                    autofocus: true,
+                    label: false,
+                    placeholder: tr("sample.email") %>
+      </div>
+
+      <div class="auth form-actions d-grid gap-2">
+        <%= f.button :submit, tr("devise.passwords.new.send_me_reset_password_instructions"), class: "btn btn-success" %>
+      </div>
+    <% end %>
+    <%= render "devise/shared/links" %>
+  </div>
+</div>

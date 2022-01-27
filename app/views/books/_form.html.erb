@@ -4,13 +4,20 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.association :room %>
-    <%= f.association :user %>
-    <%= f.input :data %>
-    <%= f.input :hora %>
+    <div class="row">
+      <div class="col-md-6">
+        <%= f.association :room %>
+      </div>
+      <div class="col-md-4">  
+        <%= f.input :book_date %>
+      </div>
+      <div class="col-md-2">
+        <%= f.input :schedule, as: :select, collection: @schedules.map { |s| [ s, s ] } %>
+      </div>
+    </div>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: 'btn btn-success' %>
   </div>
 <% end %>

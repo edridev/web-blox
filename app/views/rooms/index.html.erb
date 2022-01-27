@@ -1,3 +1,5 @@
+<%= show_messages %>
+
 <h1><%= tr :room, "activerecord.models", 2 %></h1>
 
 <table class="table table-striped">
@@ -22,6 +24,4 @@
   </tbody>
 </table>
 
-<br>
-
-<%= link_to fa_icon("plus", text: tr(:new_room, 'title')), new_room_path, class: 'btn btn-secondary' %>
+<%= link_to fa_icon("plus", text: tr('title.room.new')), new_room_path, class: 'btn btn-secondary' %>

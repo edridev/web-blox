@@ -1,7 +1,6 @@
 module ApplicationHelper
 
   def tr (value, path='', icount=1)
-    
     I18n.t value, scope: path.split('.'), default: value.to_s.humanize, count: icount
   end
 

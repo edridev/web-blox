@@ -36,6 +36,23 @@ function clearCalendar() {
 };
 
 $(document).on('turbolinks:load', function(){
-  eventCalendar();  
+  eventCalendar();
+  $('#book_book_date_1i,#book_book_date_2i,#book_book_date_3i,#book_room_id').change(function() {
+      room = $("#book_room_id option").filter(':selected').val()
+      hour = $("#book_schedule")[0].defaultValue
+      let dt =  $('#book_book_date_1i').find(":selected").val() + '-' +
+              $('#book_book_date_2i').find(":selected").val() + '-' +
+              $('#book_book_date_3i').find(":selected").val()
+    url = "/unreserveds/"+room+'/'+dt+'/'+hour
+    $.get( url, function( data ) {
+      options=data.map(function(item){
+        return '<option value="'+item+'">'+item+'</option>'
+      })
+      $('#book_schedule')
+        .empty()
+        .append('<option></optionj>')
+        .append(options)
+    });
+  })
 });
 $(document).on('turbolinks:before-cache', clearCalendar);
