@@ -8,6 +8,26 @@ class RoomsController < ApplicationController
 
   # GET /rooms/1 or /rooms/1.json
   def show
+    if request.xhr?
+      
+      events_param = params.permit( :start, :end )
+      dt1 = events_param[:start]
+      dt2 = events_param[:end]
+
+      events_list = []
+      books = Book.includes(:user).where('room_id=? and (book_date > ? and book_date < ?) ', params[:id], dt1, dt2)
+      books.each do |book|
+        events_list << {
+          id: book.id,
+          title: book.user.full_name,
+          start: book.start_date,
+          end: book.start_date
+        } 
+      end
+      render json: events_list
+
+    end
+
   end
 
   # GET /rooms/new

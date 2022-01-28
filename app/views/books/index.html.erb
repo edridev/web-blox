@@ -5,6 +5,7 @@
 <table class="table table-striped">
   <thead>
     <tr>
+      <th><%= tr :user, "activerecord.attributes.book" %></th>
       <th><%= tr :room, "activerecord.attributes.book" %></th>
       <th><%= tr :book_date, "activerecord.attributes.book" %></th>
       <th><%= tr :schedule, "activerecord.attributes.book" %></th>
@@ -15,6 +16,7 @@
   <tbody>
     <% @books.each do |book| %>
       <tr>
+        <td><%= book.user.full_name %></td>
         <td><%= book.room.name %></td>
         <td><%= book.book_date.strftime("%d/%m/%Y") %></td>
         <td><%= book.schedule %></td>

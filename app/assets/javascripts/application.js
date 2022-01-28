@@ -24,10 +24,13 @@ $(function () {
   $(".table-action > a").tooltip();
 });
 
-$('#calendar').fullCalendar({ });
+/*$('#calendar').fullCalendar({
+  events: '/events.json'
+});*/
 
 function eventCalendar() {
-  return $('#calendar').fullCalendar({ });
+  const ev = { events: window.location.pathname } 
+  return $('#calendar').fullCalendar(ev);
 };
 
 function clearCalendar() {
@@ -37,6 +40,7 @@ function clearCalendar() {
 
 $(document).on('turbolinks:load', function(){
   eventCalendar();
+
   $('#book_book_date_1i,#book_book_date_2i,#book_book_date_3i,#book_room_id').change(function() {
       room = $("#book_room_id option").filter(':selected').val()
       hour = $("#book_schedule")[0].defaultValue

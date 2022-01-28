@@ -76,11 +76,14 @@ pt-BR:
         other: Agendamentos
     attributes:
       user:
+        name: Nome do Usuário
+        nickname: Avatar
         email: eMail
         password: Senha
       room:
         name: Nome da sala
       book:
+        user: Usuário
         room: Sala
         book_date: Data
         book_date_fmt: Data

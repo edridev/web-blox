@@ -5,7 +5,10 @@
 
   <div class="form-inputs">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-3">
+        <%= f.association :user, label_method: :full_name, input_html: { disabled: !current_user.admin?, readonly: !current_user.admin? } %>
+      </div>
+      <div class="col-md-3">
         <%= f.association :room %>
       </div>
       <div class="col-md-4">  

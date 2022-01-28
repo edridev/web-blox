@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
-  layout :layout_by_resource
+  before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
+  layout :layout_by_resource
 
  private
 
@@ -14,6 +15,13 @@ class ApplicationController < ActionController::Base
     else
       "application"
     end
+  end
+
+  def configure_permitted_parameters
+    added_attrs = [:name, :login, :email, :password, :password_confirmation, :remember_me]
+    devise_parameter_sanitizer.permit :sign_up, keys: added_attrs
+    devise_parameter_sanitizer.permit :sign_in, keys: [:login, :password]
+    devise_parameter_sanitizer.permit :account_update, keys: added_attrs
   end
   
 end

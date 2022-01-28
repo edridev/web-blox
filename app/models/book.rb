@@ -19,13 +19,21 @@ class Book < ApplicationRecord
   belongs_to :room
   belongs_to :user
 
-  accepts_nested_attributes_for :room
+  accepts_nested_attributes_for :room, :user
 
-  validates_presence_of :book_date, :schedule, :schedule
-  validates_uniqueness_of :schedule, scope: :book_date
+  validates_presence_of :book_date, :schedule
+  validates_uniqueness_of :schedule, scope: [:book_date, :room_id]
 
   def book_date_fmt
     self.book_date.strftime("%d/%m/%Y")
+  end
+
+  def start_date
+    self.book_date + ActiveSupport::Duration.hours(self.schedule.to_i)
+  end
+
+  def end_date
+    start_date + 1.hour
   end
 
 end

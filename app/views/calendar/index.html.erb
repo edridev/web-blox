@@ -1,3 +1,13 @@
 <h1><%= tr :calendar %></h1>
 
-<div id="calendar"></div>
+<%= simple_form_for(@book) do |f| %>
+
+  <div class="form-inputs">
+    <div class="row">
+      <div class="col-md-12">
+        <%= f.input :room_id, as: :select, collection: @rooms, label_method: :name, input_html: { id: 'book_search' } %>
+      </div>
+    </div>
+  </div>
+<% end %>
+

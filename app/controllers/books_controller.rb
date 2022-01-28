@@ -3,7 +3,7 @@ class BooksController < ApplicationController
 
   # GET /books or /books.json
   def index
-    @books = current_user.books
+    @books = Book.order(created_at: :desc).all
   end
 
   # GET /books/1 or /books/1.json
@@ -12,7 +12,7 @@ class BooksController < ApplicationController
 
   # GET /books/new
   def new
-    @book = current_user.books.new(book_date: Date.tomorrow)
+    @book = Book.new(book_date: Date.tomorrow, user: current_user)
     @schedules = []
   end
 
@@ -23,6 +23,7 @@ class BooksController < ApplicationController
 
   # POST /books or /books.json
   def create
+    @schedules = []
     @book = Book.new(book_params)
     @book.user = current_user
 
@@ -39,6 +40,7 @@ class BooksController < ApplicationController
 
   # PATCH/PUT /books/1 or /books/1.json
   def update
+    @schedules = no_bookeds(@book.room_id,@book.book_date,@book.schedule)
     respond_to do |format|
       if @book.update(book_params)
         format.html { redirect_to book_url(@book), notice: "Book was successfully updated." }
@@ -82,7 +84,7 @@ class BooksController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_book
-      @book = current_user.books.find(params[:id])
+      @book = Book.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

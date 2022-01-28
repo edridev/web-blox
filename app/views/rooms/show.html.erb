@@ -7,10 +7,11 @@
     <div class="mb-3">
       <%= form.label :name, class: 'form-label', for: :name %>
       <%= form.text_field :name, class: "form-control", placeholder: "name@example.com", disabled: true, readonly: true %>
-    </div>
+    </div>  
     <%= link_to fa_icon("undo", text: tr(:back,'actions')), rooms_path, class: "link-form btn btn-light" %>
     <%= link_to fa_icon("edit", text: tr(:edit,'actions')), edit_room_path(@room), class: "link-form btn btn-light" %>
   <% end %>
 
 </div>
-
+<br>
+<div id="calendar"></div>

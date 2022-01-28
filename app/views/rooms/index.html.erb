@@ -13,7 +13,9 @@
   <tbody>
     <% @rooms.each do |room| %>
       <tr>
-        <td><%= room.name %></td>
+        <td>
+          <%= link_to room.name, room %>
+        </td>
         <td colspan="3" class="table-action">
           <%= link_to fa_icon("eye"), room, class: 'text-primary', title: tr(:show, "actions") %>
           <%= link_to fa_icon("edit"), edit_room_path(room), class: 'text-success', title: tr(:edit, "actions") %>

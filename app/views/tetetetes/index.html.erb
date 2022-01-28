@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Tetetetes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Full name</th>
+      <th>Address</th>
+      <th>Number</th>
+      <th>District</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Country</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tetetetes.each do |tetetete| %>
+      <tr>
+        <td><%= tetetete.name %></td>
+        <td><%= tetetete.full_name %></td>
+        <td><%= tetetete.address %></td>
+        <td><%= tetetete.number %></td>
+        <td><%= tetetete.district %></td>
+        <td><%= tetetete.city %></td>
+        <td><%= tetetete.state %></td>
+        <td><%= tetetete.country %></td>
+        <td><%= link_to 'Show', tetetete %></td>
+        <td><%= link_to 'Edit', edit_tetetete_path(tetetete) %></td>
+        <td><%= link_to 'Destroy', tetetete, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tetetete', new_tetetete_path %>
