@@ -1,24 +1,18 @@
-# README
+# WEB BLOX
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+### Introduction
 
-Things you may want to cover:
+Web Blox é uma Aplicação Web que tem a finalidade de controlar agendamentos de salas. É um teste de seleção do Blox e construído dentro dos critérios pré-estabelecidos.
 
-* Ruby version
+## Demonstrações
 
-* System dependencies
+* Demo do projeto hospedados no Heroku [web-blox.herokuapp.com/](https://web-blox.herokuapp.com).
 
-* Configuration
 
-* Database creation
+## Tecnologias utilizadas 
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Ruby 3.1.0
+* Ruby on Rails 6.1.4.4
+* PostgreSQL 14.1
+* Fullcalendar
+* Git

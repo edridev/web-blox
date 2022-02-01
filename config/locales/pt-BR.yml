@@ -33,6 +33,8 @@ pt-BR:
   sample:
     email: seunome@exemplo.com.br
   calendar: 'Reservas'
+  questions:
+    are_you_sure: 'Confirma a exclusão do registro?'
   navbar:
     room:
       one: Sala
@@ -45,7 +47,7 @@ pt-BR:
     sign_up: Registrando-se
     forgot_your_password: Redefinição de Senha
     room:
-      new: Nova sala
+      new: Nova Sala
       edit: Editando sala
       show: Visualizando Sala
     book:
@@ -65,6 +67,10 @@ pt-BR:
       update: 'Sala atualizada com sucesso'
       create: 'Sala criada com sucesso'
       destroy: 'Sala destruida com sucesso'
+    book:
+      update: 'Agendamento atualizado com sucesso'
+      create: 'Agendamento criado com sucesso'
+      destroy: 'Agendamento destruido com sucesso'
   activerecord:
     models:
       user: Usuário

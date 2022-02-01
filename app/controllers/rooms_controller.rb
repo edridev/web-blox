@@ -20,8 +20,8 @@ class RoomsController < ApplicationController
         events_list << {
           id: book.id,
           title: book.user.full_name,
-          start: book.start_date,
-          end: book.start_date
+          start: book.dateTime,
+          end: book.dateTime
         } 
       end
       render json: events_list

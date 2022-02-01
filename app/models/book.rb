@@ -15,6 +15,11 @@
 #  index_books_on_room_id  (room_id)
 #  index_books_on_user_id  (user_id)
 #
+# Foreign Keys
+#
+#  room_id  (room_id => rooms.id)
+#  user_id  (user_id => users.id)
+#
 class Book < ApplicationRecord
   belongs_to :room
   belongs_to :user
@@ -28,12 +33,8 @@ class Book < ApplicationRecord
     self.book_date.strftime("%d/%m/%Y")
   end
 
-  def start_date
+  def dateTime
     self.book_date + ActiveSupport::Duration.hours(self.schedule.to_i)
-  end
-
-  def end_date
-    start_date + 1.hour
   end
 
 end

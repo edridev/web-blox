@@ -2,22 +2,29 @@
 <h1><%= tr 'title.book.show' %></h1>
 
 <div class="crud-form">
-  <%= form_with(model: @book, local: true) do |form| %>
-    <%= form.fields_for :room do |f| %>
-      <div class="mb-3">
-        <%= f.label :name, class: 'form-label', for: :name %>
-        <%= f.text_field :name, class: "form-control", disabled: true, readonly: true %>
-      </div>
-    <% end %>
-    <div class="mb-3">
-      <%= form.label :book_date_fmt, class: 'form-label', for: :book_date_fmt %>
-      <%= form.text_field :book_date_fmt, class: "form-control", disabled: true, readonly: true %>
-    </div>
-    <div class="mb-3">
-      <%= form.label :schedule, class: 'form-label', for: :schedule %>
-      <%= form.text_field :schedule, class: "form-control", disabled: true, readonly: true %>
-    </div>
-    <%= link_to fa_icon("undo", text: tr(:back,'actions')), books_path, class: "link-form btn btn-light" %>
-    <%= link_to fa_icon("edit", text: tr(:edit,'actions')), edit_book_path(@book), class: "link-form btn btn-light" %>
-  <% end %>
+
+  <table class="table show-table">
+    <tbody>
+      <tr>
+        <td class="show-column"><%= tr :user, "activerecord.attributes.book" %> :</td>
+        <td><%= @book.user.full_name %></td>
+      </tr>
+      <tr>
+        <td class="show-column"><%= tr :room, "activerecord.attributes.book" %> :</td>
+        <td><%= @book.room.name %></td>
+      </tr>
+      <tr>
+        <td class="show-column"><%= tr :book_date, "activerecord.attributes.book" %> :</td>
+        <td><%= @book.book_date_fmt %></td>
+      </tr>
+      <tr>
+        <td class="show-column"><%= tr :schedule, "activerecord.attributes.book" %> :</td>
+        <td><%= @book.schedule %></td>
+      </tr>
+      
+    </tbody>
+  </table>
+
+  <%= link_to fa_icon("undo", text: tr(:back,'actions')), books_path, class: "link-form btn btn-light" %>
+  <%= link_to fa_icon("edit", text: tr(:edit,'actions')), edit_book_path(@book), class: "link-form btn btn-light" %>
 </div>

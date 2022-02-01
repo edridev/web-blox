@@ -17,9 +17,9 @@
           <%= link_to room.name, room %>
         </td>
         <td colspan="3" class="table-action">
-          <%= link_to fa_icon("eye"), room, class: 'text-primary', title: tr(:show, "actions") %>
-          <%= link_to fa_icon("edit"), edit_room_path(room), class: 'text-success', title: tr(:edit, "actions") %>
-          <%= link_to fa_icon("trash"), room, method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-danger', title: tr(:destroy, "actions") %>
+          <%= link_to fa_icon("eye"), room, class: 'text-primary', title: tr(:show, "actions"), id: "view-#{room.id}" %>
+          <%= link_to fa_icon("edit"), edit_room_path(room), class: 'text-success', title: tr(:edit, "actions"), id: "edit-#{room.id}" %>
+          <%= link_to fa_icon("trash"), room, method: :delete, data: { confirm: tr('questions.are_you_sure') }, class: 'text-danger', title: tr(:destroy, "actions"), id: "destroy-#{room.id}" %>
         </td>
       </tr>
     <% end %>

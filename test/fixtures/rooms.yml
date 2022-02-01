@@ -1,0 +1,15 @@
+# == Schema Information
+#
+# Table name: rooms
+#
+#  id         :integer          not null, primary key
+#  name       :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
+sala1:
+  name: Sala 01
+
+sala2:
+  name: Sala 02

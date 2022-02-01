@@ -21,9 +21,9 @@
         <td><%= book.book_date.strftime("%d/%m/%Y") %></td>
         <td><%= book.schedule %></td>
         <td colspan="3" class="table-action">
-          <%= link_to fa_icon("eye"), book, class: 'text-primary', title: tr(:show, "actions") %>
-          <%= link_to fa_icon("edit"), edit_book_path(book), class: 'text-success', title: tr(:edit, "actions") %>
-          <%= link_to fa_icon("trash"), book, method: :delete, data: { confirm: 'Are you sure?' }, class: 'text-danger', title: tr(:destroy, "actions") %>
+          <%= link_to fa_icon("eye"), book, class: 'text-primary', title: tr(:show, "actions"), id: "view-#{book.id}" %>
+          <%= link_to fa_icon("edit"), edit_book_path(book), class: 'text-success', title: tr(:edit, "actions"), id: "edit-#{book.id}" %>
+          <%= link_to fa_icon("trash"), book, method: :delete, data: { confirm: tr('questions.are_you_sure') }, class: 'text-danger', title: tr(:destroy, "actions"), id: "destroy-#{book.id}" %>
         </td>
       </tr>
     <% end %>

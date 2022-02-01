@@ -27,7 +27,7 @@ class User < ApplicationRecord
          authentication_keys: [:login]
   attr_writer :login
   has_many :books
-  validates_presence_of :full_name, :username, :login
+  validates_presence_of :full_name, :login, :username, :email
 
   def login
     @login || self.username || self.email

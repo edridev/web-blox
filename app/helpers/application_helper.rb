@@ -14,6 +14,4 @@ module ApplicationHelper
     resp.html_safe
   end
 
-
-
 end

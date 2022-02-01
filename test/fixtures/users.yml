@@ -1,0 +1,35 @@
+# == Schema Information
+#
+# Table name: users
+#
+#  id                     :integer          not null, primary key
+#  admin                  :boolean          default(FALSE), not null
+#  email                  :string
+#  encrypted_password     :string
+#  full_name              :string
+#  remember_created_at    :datetime
+#  reset_password_sent_at :datetime
+#  reset_password_token   :string
+#  username               :string
+#  created_at             :datetime         not null
+#  updated_at             :datetime         not null
+#
+# Indexes
+#
+#  index_users_on_email                 (email) UNIQUE
+#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
+#
+
+admin:
+  full_name: Administrador do Sistema
+  username: admin
+  email: admin@gmail.com
+  encrypted_password:  <%= User.new.send(:password_digest, '9823u9r98hrf9e32h') %>
+  admin: true
+
+francisco:
+  full_name: Francisco da Costa
+  username: francisco
+  email: francosta@gmail.com
+  encrypted_password:  <%= User.new.send(:password_digest, 'oiweuriureiowfvd239084') %>
+  admin: false

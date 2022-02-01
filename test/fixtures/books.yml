@@ -1,0 +1,34 @@
+# == Schema Information
+#
+# Table name: books
+#
+#  id         :integer          not null, primary key
+#  book_date  :date
+#  schedule   :string
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  room_id    :integer
+#  user_id    :integer
+#
+# Indexes
+#
+#  index_books_on_room_id  (room_id)
+#  index_books_on_user_id  (user_id)
+#
+# Foreign Keys
+#
+#  room_id  (room_id => rooms.id)
+#  user_id  (user_id => users.id)
+#
+
+_09h:
+  book_date: <%= Date.tomorrow %>
+  room: sala1
+  user: admin
+  schedule: 09h
+
+_10h:
+  book_date: <%= Date.tomorrow %>
+  room: sala2
+  user: francisco
+  schedule: 10h
